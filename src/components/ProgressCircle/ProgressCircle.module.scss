@@ -8,11 +8,12 @@
 
 .text {
   position: absolute;
+
+  font-size: x-small;
 }
 
 .svg {
   display: block;
-  width: fit-content;
 
   transform: rotate(-90deg);
 }

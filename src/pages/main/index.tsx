@@ -15,10 +15,10 @@ export const MainPage = () => {
   });
 
   return (
-    <main>
+    <main class={styles.container}>
       <h1 class={styles.header}>Task List</h1>
-      <Suspense fallback={<Loader />}>
-        <section>
+      <Suspense fallback={<Loader center />}>
+        <section class={styles.section}>
           <ul class={styles.taskContainer}>
             {
               <For each={data()}>

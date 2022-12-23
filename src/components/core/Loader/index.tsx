@@ -4,8 +4,12 @@ import { VoidComponent } from "solid-js";
 
 import styles from "./Loader.module.scss";
 
-export const Loader: VoidComponent<{ class?: string }> = (props) => (
-  <div class={cn(props.class, styles.container)}>
+export const Loader: VoidComponent<{ class?: string; center?: boolean }> = (
+  props
+) => (
+  <div
+    class={cn(props.class, styles.container, { [styles.center]: props.center })}
+  >
     <div class={styles.spinnerContainer}>
       <div class={styles.spinner} />
       <div class={styles.spinner2} />
