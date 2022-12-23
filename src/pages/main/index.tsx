@@ -1,5 +1,5 @@
-import { For, Suspense } from "solid-js";
-import { createRouteData, Title } from "solid-start";
+import { createResource, For, Suspense } from "solid-js";
+
 import { Task } from "~/components/Task";
 
 import { delay } from "~/dev/utils/delay";
@@ -8,14 +8,13 @@ import { TaskWithId } from "~/model";
 
 import styles from "./MainPage.module.scss";
 
-export default function Home() {
-  const data = createRouteData<TaskWithId[]>(async () => {
+export const MainPage = () => {
+  const [data] = createResource(async () => {
     return await delay(() => mockTasks);
   });
 
   return (
     <main class={styles.container}>
-      <Title>Repeater</Title>
       <h1>Task List</h1>
       <Suspense fallback={<div>loading</div>}>
         <section class={styles.taskContainer}>
@@ -34,4 +33,4 @@ export default function Home() {
       </Suspense>
     </main>
   );
-}
+};

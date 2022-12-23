@@ -1,9 +1,14 @@
+import { Router } from "@solidjs/router";
 import type { Component } from "solid-js";
 
-import styles from "./App.module.css";
+import { AppRouter } from "./router";
 
 const App: Component = () => {
-  return <main class={styles.App}></main>;
+  return (
+    <Router>
+      <AppRouter />
+    </Router>
+  );
 };
 
 export default App;
