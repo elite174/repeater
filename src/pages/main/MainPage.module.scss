@@ -1,4 +1,10 @@
+.header {
+  font-weight: 500;
+}
+
 .taskContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+
+  grid-auto-flow: row;
+  gap: 1rem;
 }

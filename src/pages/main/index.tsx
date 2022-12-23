@@ -1,4 +1,5 @@
 import { createResource, For, Suspense } from "solid-js";
+import { Loader } from "~/components/core/Loader";
 
 import { Task } from "~/components/Task";
 
@@ -14,11 +15,11 @@ export const MainPage = () => {
   });
 
   return (
-    <main class={styles.container}>
-      <h1>Task List</h1>
-      <Suspense fallback={<div>loading</div>}>
-        <section class={styles.taskContainer}>
-          <ul>
+    <main>
+      <h1 class={styles.header}>Task List</h1>
+      <Suspense fallback={<Loader />}>
+        <section>
+          <ul class={styles.taskContainer}>
             {
               <For each={data()}>
                 {(item) => (
