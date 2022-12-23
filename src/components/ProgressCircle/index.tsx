@@ -13,19 +13,13 @@ interface Props {
   strokeWidth?: number;
 }
 
-const computeArcOffset = (radius: number, progressPercentage: number) => {
-  const arcLength = 2 * Math.PI * radius;
-
-  return arcLength * ((100 - progressPercentage) / 100);
-};
-
 export const ProgressCircle: VoidComponent<Props> = (initialProps) => {
   const props = mergeProps(
     { size: DEFAULT_RADIUS, strokeWidth: DEFAULT_STROKE_WIDTH },
     initialProps
   );
 
-  const center = () => props.size / 2;
+  const center = createMemo(() => props.size / 2);
 
   const computedRadius = createMemo(() => center() - props.strokeWidth);
 
@@ -49,20 +43,23 @@ export const ProgressCircle: VoidComponent<Props> = (initialProps) => {
     computedDashArray() * ((100 - progressPercentage()) / 100);
 
   return (
-    <svg
-      style={{
-        ["--radius"]: `${computedRadius()}px`,
-        ["--dashArray"]: `${computedDashArray()}px`,
-        ["--dashOffset"]: `${computedDashOffset()}px`,
-        ["--strokeWidth"]: `${props.strokeWidth}px`,
-        width: `${props.size}px`,
-        height: `${props.size}px`,
-      }}
-      xmlns="http://www.w3.org/2000/svg"
-      class={styles.container}
-    >
-      <circle {...circleAttributes()} class={styles.track} />
-      <circle {...circleAttributes()} class={styles.indication} />
-    </svg>
+    <div class={styles.container}>
+      <svg
+        style={{
+          ["--radius"]: `${computedRadius()}px`,
+          ["--dashArray"]: `${computedDashArray()}px`,
+          ["--dashOffset"]: `${computedDashOffset()}px`,
+          ["--strokeWidth"]: `${props.strokeWidth}px`,
+          width: `${props.size}px`,
+          height: `${props.size}px`,
+        }}
+        xmlns="http://www.w3.org/2000/svg"
+        class={styles.svg}
+      >
+        <circle {...circleAttributes()} class={styles.track} />
+        <circle {...circleAttributes()} class={styles.indication} />
+      </svg>
+      <span class={styles.text}>55%</span>
+    </div>
   );
 };
