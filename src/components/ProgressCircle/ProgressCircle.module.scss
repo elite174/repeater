@@ -1,0 +1,24 @@
+.container {
+  display: block;
+  width: fit-content;
+
+  transform: rotate(-90deg);
+}
+
+.track,
+.indication {
+  fill: transparent;
+  stroke-width: var(--strokeWidth);
+}
+
+.track {
+  stroke: #ddd;
+}
+
+.indication {
+  stroke: #07c;
+
+  stroke-dasharray: var(--dashArray);
+  stroke-dashoffset: var(--dashOffset);
+  stroke-linecap: round;
+}
