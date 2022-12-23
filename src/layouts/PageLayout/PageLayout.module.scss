@@ -1,0 +1,17 @@
+.container {
+  height: 100vh;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-items: start;
+
+  @supports (height: 100dvh) {
+    height: 100dvh;
+  }
+}
+
+.content {
+  height: 100%;
+  overflow: hidden;
+}

@@ -4,6 +4,7 @@ import { Loader } from "~/components/core/Loader";
 import { Task } from "~/components/Task";
 
 import { delay } from "~/dev/utils/delay";
+import { PageLayout } from "~/layouts/PageLayout";
 import { mockTasks } from "~/mock/data";
 import { TaskWithId } from "~/model";
 
@@ -15,7 +16,7 @@ export const MainPage = () => {
   });
 
   return (
-    <main class={styles.container}>
+    <PageLayout class={styles.container}>
       <h1 class={styles.header}>Task List</h1>
       <Suspense fallback={<Loader center />}>
         <section class={styles.section}>
@@ -32,6 +33,6 @@ export const MainPage = () => {
           </ul>
         </section>
       </Suspense>
-    </main>
+    </PageLayout>
   );
 };
