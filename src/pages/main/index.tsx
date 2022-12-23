@@ -24,7 +24,7 @@ export const MainPage = () => {
             {
               <For each={data()}>
                 {(item) => (
-                  <li>
+                  <li class={styles.listItem}>
                     <Task task={item} currentTime={new Date()} />
                   </li>
                 )}

@@ -14,7 +14,7 @@ export const Task: Component<Props> = (props) => {
   return (
     <div class={styles.container}>
       <ProgressCircle currentValue={45} startValue={0} endValue={100} />
-      <strong>{props.task.title}</strong>
+      <strong class={styles.text}>{props.task.title}</strong>
     </div>
   );
 };

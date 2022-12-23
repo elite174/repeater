@@ -35,7 +35,7 @@ export const mockTasks: TaskWithId[] = [
   },
   {
     id: 3,
-    title: "something to repeat",
+    title: "something to repea aslkd asld asldk asldk asldk asdlka sdlask dt",
     repeatIn: toSeconds(1, TimeUnit.Hour),
     startDate: "123",
   },
